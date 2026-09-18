@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactNode } from "react";
 import { SiteFooter } from "./fqac/footer";
 import { SiteHeader } from "./fqac/header";
 import {
@@ -19,7 +20,11 @@ import {
   ServicesSection,
 } from "./fqac/sections";
 
-export default function FqacSite() {
+export default function FqacSite({
+  lecturerStats,
+}: {
+  lecturerStats: ReactNode;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
   const [openCommittee, setOpenCommittee] = useState(false);
@@ -29,6 +34,7 @@ export default function FqacSite() {
     <main className="min-h-screen bg-background">
       <SiteHeader mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <HeroSection />
+      {lecturerStats}
       <AboutSection />
       <GovernanceSection />
       <ServicesSection />
